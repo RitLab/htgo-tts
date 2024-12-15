@@ -1,4 +1,4 @@
-module github.com/hegedustibor/htgo-tts
+module github.com/Ritlab/htgo-tts
 
 go 1.23
 
