@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/ebitengine/oto/v3"
 	"github.com/hajimehoshi/go-mp3"
-	"github.com/hajimehoshi/oto/v2"
 )
 
 type Native struct {
@@ -28,9 +28,12 @@ func (n *Native) Play(fileName string) error {
 	}
 
 	numOfChannels := 2
-	audioBitDepth := 2
 
-	otoCtx, readyChan, err := oto.NewContext(decodedMp3.SampleRate(), numOfChannels, audioBitDepth)
+	otoCtx, readyChan, err := oto.NewContext(&oto.NewContextOptions{
+		SampleRate:   decodedMp3.SampleRate(),
+		ChannelCount: numOfChannels,
+		Format:       oto.FormatSignedInt16LE,
+	})
 	if err != nil {
 		return err
 	}

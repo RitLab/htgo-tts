@@ -1,10 +1,13 @@
 module github.com/hegedustibor/htgo-tts
 
-go 1.17
+go 1.23
 
 require (
-	github.com/hajimehoshi/go-mp3 v0.3.3
-	github.com/hajimehoshi/oto/v2 v2.2.0
+	github.com/ebitengine/oto/v3 v3.3.1
+	github.com/hajimehoshi/go-mp3 v0.3.4
 )
 
-require golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e // indirect
+require (
+	github.com/ebitengine/purego v0.8.1 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+)

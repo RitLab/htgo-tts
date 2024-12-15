@@ -31,7 +31,7 @@ type Speech struct {
 	Handler  handlers.PlayerInterface
 }
 
-// Creates a speech file with a given name
+// CreateSpeechFile Creates a speech file with a given name
 func (speech *Speech) CreateSpeechFile(text string, fileName string) (string, error) {
 	var err error
 
@@ -47,7 +47,7 @@ func (speech *Speech) CreateSpeechFile(text string, fileName string) (string, er
 	return f, nil
 }
 
-// Creates a speech message with a given name
+// CreateSpeechBuff Creates a speech message with a given name
 func (speech *Speech) CreateSpeechBuff(text string, fileName string) (io.Reader, error) {
 	data := []rune(text)
 
@@ -99,7 +99,7 @@ func (speech *Speech) CreateSpeechBuff(text string, fileName string) (io.Reader,
 	return buf, nil
 }
 
-// Plays an existent .mp3 file
+// PlaySpeechFile Plays an existent .mp3 file
 func (speech *Speech) PlaySpeechFile(fileName string) error {
 	if speech.Handler == nil {
 		mplayer := handlers.MPlayer{}
